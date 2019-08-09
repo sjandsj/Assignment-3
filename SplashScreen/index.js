@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
+import { NavigationActions, StackActions } from "react-navigation";
+
+import LoginScreen from "../LoginScreen/index" ;
 
 export default class SplashScreen extends Component {
+  componentDidMount() {
+    setTimeout(() => {
+      const navigateAction = StackActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: "LoginScreen" })],
+      });
+      this.props.navigation.dispatch(navigateAction);
+    }, 1500);
+  }
   render() {
     return (
       <View style={myStyles.mainContainer}>

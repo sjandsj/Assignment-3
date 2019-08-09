@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import SplashScreen from "./SplashScreen/index";
+import Navigator from "./navigator/index";
 
-export default class DummyClass extends Component {
+export default class App_jsClass extends Component {
   render() {
-    return <SplashScreen/>;
+    return <Navigator />;
   }
 }
