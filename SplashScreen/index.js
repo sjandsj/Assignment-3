@@ -63,7 +63,7 @@ const myStyles = StyleSheet.create({
     fontWeight: "900"
   },
   itStyle: {
-    color: "steelblue",
+    color: "dodgerblue",
     fontSize: 15,
     fontWeight: "900"
   }
