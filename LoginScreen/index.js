@@ -5,7 +5,6 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
-  ScrollView,
   StyleSheet
 } from "react-native";
 
@@ -54,9 +53,7 @@ export default class LoginScreen extends Component {
             <Text style={myStyle.loginButton}>Login</Text>
           </TouchableOpacity>
           <TouchableOpacity style={myStyle.touchableopacityForRegistration}>
-            <Text style={myStyle.registerButton}>
-              Not a Member , Register ??
-            </Text>
+            <Text style={myStyle.registerButton}>SignUp</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -84,7 +81,7 @@ const myStyle = StyleSheet.create({
   fieldView: {
     width: "100%",
     flex: 4,
-    justifyContent: "space-around",
+    justifyContent: "flex-start",
     backgroundColor: "dodgerblue"
   },
   greetingStyle: {
@@ -109,7 +106,8 @@ const myStyle = StyleSheet.create({
     alignItems: "center"
   },
   TextInputStyle: {
-    height: "15%",
+    top: "12%",
+    height: "12%",
     width: "100%",
     backgroundColor: "whitesmoke",
     textAlign: "center",
@@ -118,28 +116,34 @@ const myStyle = StyleSheet.create({
     borderRadius: 30,
     borderColor: "dodgerblue",
     alignSelf: "center",
-    padding: 6
+    padding: 10
   },
   touchableopacityForLogin: {
+    top: "20%",
     backgroundColor: "whitesmoke",
     width: "40%",
     margin: 20,
     borderRadius: 35,
-    //borderWidth: 1
+    alignSelf: "flex-end",
   },
   loginButton: {
     fontSize: 30,
     fontFamily: "Times New Roman",
     fontWeight: "900",
-    textAlign: "center"
+    textAlign: "center",
   },
   touchableopacityForRegistration: {
+    top: "20%",
     backgroundColor: "whitesmoke",
-    width: "100%",
+    width: "40%",
     borderRadius: 35,
+    margin: 20,
+    alignSelf: "flex-end",
   },
   registerButton: {
     fontSize: 25,
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Times New Roman",
+    fontWeight: "900"
   }
 });
