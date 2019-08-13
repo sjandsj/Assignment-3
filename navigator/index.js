@@ -1,7 +1,7 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import SplashScreen from "../SplashScreen/index";
-import LoginScreen from "../LoginScreen/index";
-import RegisterScreen from "../RegisterScreen/index";
+import SplashScreen from "../Screens/SplashScreen/index";
+import LoginScreen from "../Screens/LoginScreen/index";
+import RegisterScreen from "../Screens/RegisterScreen/index";
 
 // Manifest of possible screens
 const RootNavigator = createStackNavigator(

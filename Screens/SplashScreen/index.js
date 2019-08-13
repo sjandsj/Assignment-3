@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
 import { NavigationActions, StackActions } from "react-navigation";
 
-import LoginScreen from "../LoginScreen/index" ;
-
 export default class SplashScreen extends Component {
   componentDidMount() {
     setTimeout(() => {
