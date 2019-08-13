@@ -5,7 +5,6 @@ import RegisterScreen from "./Screens/RegisterScreen/index";
 
 export default class App_jsClass extends Component {
   render() {
-    // return <Navigator />;
-    return <RegisterScreen />;
+    return <Navigator />;
   }
 }

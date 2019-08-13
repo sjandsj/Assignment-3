@@ -44,7 +44,10 @@ const LoginContainer = props => {
         <TouchableOpacity style={myStyle.touchableopacityForLogin}>
           <Text style={myStyle.loginButton}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={myStyle.touchableopacityForRegistration}>
+        <TouchableOpacity
+          onPress={props.OnLoginButtonPressed}
+          style={myStyle.touchableopacityForRegistration}
+        >
           <Text style={myStyle.registerButton}>SignUp</Text>
         </TouchableOpacity>
       </View>
@@ -89,7 +92,7 @@ const myStyle = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     marginTop: 10,
-    fontFamily: 'Times New Roman',
+    fontFamily: "Times New Roman"
   },
   textUnderGreetingView: {
     flex: 3,
@@ -121,7 +124,7 @@ const myStyle = StyleSheet.create({
     fontSize: 30,
     fontFamily: "Times New Roman",
     fontWeight: "900",
-    textAlign: 'center',
+    textAlign: "center"
   },
   touchableopacityForRegistration: {
     top: "20%",
@@ -129,7 +132,7 @@ const myStyle = StyleSheet.create({
     width: "40%",
     borderRadius: 35,
     margin: 20,
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end"
   },
   registerButton: {
     fontSize: 25,
