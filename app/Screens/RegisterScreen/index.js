@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Alert } from "react-native";
 import ImagePicker from "react-native-image-picker";
-import { RegisterContainer } from "./Components/Container"
+import { RegisterContainer } from "./Components/Container";
+import { validation } from "../../utils/validation";
 
 var thisElement;
 
@@ -47,6 +48,33 @@ export default class RegisterScreen extends Component {
     });
   }
 
+  createAccountButtonPressedAction = () => {
+    if (
+      this.state.email == "" &&
+      this.state.password1 == "" &&
+      this.state.password2 == ""
+    ) {
+      Alert.alert("Email And Password Cannot be Empty");
+    } else if (this.state.password1 == "") {
+      Alert.alert("Please Create A Password");
+    } else if (this.state.password2 == "") {
+      Alert.alert("Please Confim Your Password");
+    } else if (this.state.email == "") {
+      Alert.alert("Enter Your Email");
+    } else if (this.state.password1!=this.state.password2) {
+      Alert.alert("Password Did Not Match");
+    } else {
+      if (!validation("Email", this.state.email)) {
+        Alert.alert("Invalid Email");
+        return;
+      } else if (validation("password", this.state.password1)) {
+        Alert.alert("Invalid Password");
+        return;
+      }
+      Alert.alert("Congrats Your Account Has been Created");
+    }
+  };
+
   render() {
     return (
       <RegisterContainer
@@ -61,6 +89,7 @@ export default class RegisterScreen extends Component {
         radioPropsPressed={value => {
           this.setState({ value: value });
         }}
+        createAccountButtonPressed={this.createAccountButtonPressedAction}
       />
     );
   }

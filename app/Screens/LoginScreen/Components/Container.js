@@ -41,11 +41,14 @@ const LoginContainer = props => {
           onChangeText={props.onChangePassword}
           secureTextEntry={true}
         />
-        <TouchableOpacity style={myStyle.touchableopacityForLogin}>
+        <TouchableOpacity
+          onPress={props.loginButtonPressed}
+          style={myStyle.touchableopacityForLogin}
+        >
           <Text style={myStyle.loginButton}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={props.OnLoginButtonPressed}
+          onPress={props.signUpButtonPressed}
           style={myStyle.touchableopacityForRegistration}
         >
           <Text style={myStyle.registerButton}>SignUp</Text>

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { LoginContainer } from "./Components/Container";
+import { validation } from "../../utils/validation";
+import { Alert } from "react-native";
 
 var myNavigate;
 
@@ -12,8 +14,27 @@ export default class LoginScreen extends Component {
     };
   }
 
-  LoginButtonPressed = () => {
+  signUpButtonPressedAction = () => {
     myNavigate("RegisterScreen");
+  };
+
+  loginButtonPressedAction = () => {
+    if (this.state.email == "" && this.state.password == "") {
+      Alert.alert("Please Enter Your Details");
+    } else if (this.state.email == "") {
+      Alert.alert("Please Enter An Email");
+    } else if (this.state.password == "") {
+      Alert.alert("Please Enter a Password");
+    } else {
+      if (!validation("Email", this.state.email)) {
+        Alert.alert("Invalid Email");
+        return;
+      } else if (validation("password", this.state.password)) {
+        Alert.alert("Invalid Password");
+        return;
+      }
+      Alert.alert("Congrats You Succesfully Logged In");
+    }
   };
 
   render() {
@@ -26,7 +47,8 @@ export default class LoginScreen extends Component {
         passwordValue={this.state.password}
         onChangeEmail={email => this.setState({ email })}
         onChangePassword={password => this.setState({ password })}
-        OnLoginButtonPressed={this.LoginButtonPressed}
+        signUpButtonPressed={this.signUpButtonPressedAction}
+        loginButtonPressed={this.loginButtonPressedAction}
       />
     );
   }

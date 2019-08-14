@@ -1,9 +1,8 @@
-import React, { Compnent } from "react";
+import React from "react";
 import {
   Text,
   View,
   Image,
-  Alert,
   StyleSheet,
   ImageBackground,
   TextInput,
@@ -65,7 +64,10 @@ const RegisterContainer = props => {
           secureTextEntry={true}
           onChangeText={props.onChangePassword2}
         />
-        <TouchableOpacity style={myStyle.touchableOpacity}>
+        <TouchableOpacity
+          onPress={props.createAccountButtonPressed}
+          style={myStyle.touchableOpacity}
+        >
           <Text style={myStyle.registerButton}>Create an Account</Text>
         </TouchableOpacity>
       </ImageBackground>
