@@ -2,17 +2,15 @@ import React, { Component } from "react";
 import { Alert } from "react-native";
 import ImagePicker from "react-native-image-picker";
 import { RegisterContainer } from "./Components/Container";
-import { validation } from "../../utils/validation";
-
-var thisElement;
+import { emailValidation } from "../../utils/validation";
+import { passwordValidation } from "../../utils/validation";
 
 export default class RegisterScreen extends Component {
   constructor(props) {
     super(props);
-    thisElement = this;
+    this123 = this;
     this.state = {
-      displayPic:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqA-PkujBrLPUF13w1FsaTe_OO6yDDRxVNW73b730r0ryLyXfG",
+      displayPic: "",
       email: "",
       value: null,
       password1: "",
@@ -41,9 +39,10 @@ export default class RegisterScreen extends Component {
         Alert.alert(response.customButton);
       } else {
         const source = { uri: response.uri };
-        thisElement.setState({
+        this123.setState({
           displayPic: source
         });
+        console.log("dddddddd", source);
       }
     });
   }
@@ -64,10 +63,10 @@ export default class RegisterScreen extends Component {
     } else if (this.state.password1!=this.state.password2) {
       Alert.alert("Password Did Not Match");
     } else {
-      if (!validation("Email", this.state.email)) {
+      if (!emailValidation(this.state.email)) {
         Alert.alert("Invalid Email");
         return;
-      } else if (validation("password", this.state.password1)) {
+      } else if (passwordValidation(this.state.password1)) {
         Alert.alert("Invalid Password");
         return;
       }
@@ -76,9 +75,10 @@ export default class RegisterScreen extends Component {
   };
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <RegisterContainer
-        imageSource={{ uri: this.state.displayPic }}
+        imageSource={this.state.displayPic}
         uploadMyImagePressed={this.uplaodImageButtonPressed}
         emailValue={this.state.email}
         onChangeEmail={email => this.setState({ email })}

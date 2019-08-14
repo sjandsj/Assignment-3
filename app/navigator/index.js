@@ -8,18 +8,10 @@ const RootNavigator = createStackNavigator(
     SplashScreen: {
       screen: SplashScreen,
       key: "SplashScreen",
-      navigationOptions: {
-        header: null,
-        gesturesEnabled: false
-      }
     },
     LoginScreen: {
       screen: LoginScreen,
       key: "LoginScreen",
-      navigationOptions: {
-        header: null,
-        gesturesEnabled: false
-      }
     },
     RegisterScreen: {
       screen: RegisterScreen,

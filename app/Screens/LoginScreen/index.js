@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { LoginContainer } from "./Components/Container";
-import { validation } from "../../utils/validation";
+import { emailValidation } from "../../utils/validation";
+import { passwordValidation } from "../../utils/validation";
 import { Alert } from "react-native";
 
 var myNavigate;
@@ -26,10 +27,10 @@ export default class LoginScreen extends Component {
     } else if (this.state.password == "") {
       Alert.alert("Please Enter a Password");
     } else {
-      if (!validation("Email", this.state.email)) {
+      if (!emailValidation(this.state.email)) {
         Alert.alert("Invalid Email");
         return;
-      } else if (validation("password", this.state.password)) {
+      } else if (passwordValidation(this.state.password)) {
         Alert.alert("Invalid Password");
         return;
       }
