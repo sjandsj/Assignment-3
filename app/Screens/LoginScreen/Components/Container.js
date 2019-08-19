@@ -133,12 +133,13 @@ const myStyle = StyleSheet.create({
     top: "20%",
     backgroundColor: "whitesmoke",
     width: "40%",
+    height: 35,
     borderRadius: 35,
     margin: 20,
     alignSelf: "flex-end"
   },
   registerButton: {
-    fontSize: 25,
+    fontSize: 30,
     textAlign: "center",
     fontFamily: "Times New Roman",
     fontWeight: "900"

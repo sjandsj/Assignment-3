@@ -5,6 +5,8 @@ import { RegisterContainer } from "./Components/Container";
 import { emailValidation } from "../../utils/validation";
 import { passwordValidation } from "../../utils/validation";
 
+var myNavigate;
+
 export default class RegisterScreen extends Component {
   constructor(props) {
     super(props);
@@ -74,10 +76,20 @@ export default class RegisterScreen extends Component {
     }
   };
 
+  backButton = () => {
+    myNavigate("LoginScreen");
+  };
+
+  static navigationOptions = {
+    title: "Register Screen"
+  };
+
   render() {
     const { navigate } = this.props.navigation;
+    myNavigate = navigate;
     return (
       <RegisterContainer
+        backButtonPressed={this.backButton}
         imageSource={this.state.displayPic}
         uploadMyImagePressed={this.uplaodImageButtonPressed}
         emailValue={this.state.email}

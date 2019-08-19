@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ImageBackground,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 import RadioForm from "react-native-simple-radio-button";
 
@@ -26,6 +27,17 @@ const RegisterContainer = props => {
             "https://3.bp.blogspot.com/-CbmFDA3VLiI/XCDoxYhVojI/AAAAAAAAJSg/3UL-LiuBal4ls8LYrzriUw_KKKfhM929wCLcBGAs/s1600/background%2Bhd%2Bimages%2B%252810%2529.jpg"
         }}
       >
+        <TouchableOpacity
+          style={{ alignSelf: "flex-start" }}
+          onPress={props.backButtonPressed}
+        >
+          <Image
+            style={myStyle.backButton}
+            source={{
+              uri: "https://static.thenounproject.com/png/344330-200.png"
+            }}
+          />
+        </TouchableOpacity>
         <Text style={myStyle.headerStyle}>Enter Your Details</Text>
         <View style={myStyle.uplaodImageView}>
           <Image style={myStyle.imageDimensions} source={props.imageSource} />
@@ -71,6 +83,7 @@ const RegisterContainer = props => {
           <Text style={myStyle.registerButton}>Create an Account</Text>
         </TouchableOpacity>
       </ImageBackground>
+      <KeyboardAvoidingView behavior="padding" enabled></KeyboardAvoidingView>
     </View>
   );
 };
@@ -89,6 +102,7 @@ const myStyle = StyleSheet.create({
     alignItems: "center"
   },
   headerStyle: {
+    //top: 5,
     fontSize: 30,
     fontWeight: "900",
     fontStyle: "italic"
@@ -98,7 +112,7 @@ const myStyle = StyleSheet.create({
     borderRadius: 95,
     backgroundColor: "whitesmoke",
     textAlign: "center",
-    height: "6%",
+    height: 55,
     fontWeight: "900",
     fontSize: 25,
     fontFamily: "Times New Roman"
@@ -127,12 +141,19 @@ const myStyle = StyleSheet.create({
   },
   uplaodImageButtonText: {
     fontSize: 25,
+    fontWeight: "400",
     fontFamily: "Times New Roman"
   },
   imageDimensions: {
-    width: 100,
-    height: 100,
-    backgroundColor: "steelblue"
+    width: 110,
+    height: 110,
+    backgroundColor: "steelblue",
+    borderRadius: 50
+  },
+  backButton: {
+    height: 30,
+    width: 50,
+    alignSelf: "flex-start"
   }
 });
 

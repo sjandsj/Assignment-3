@@ -38,6 +38,10 @@ export default class LoginScreen extends Component {
     }
   };
 
+  static navigationOptions = {
+    title: "Login Screen"
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     myNavigate = navigate;
